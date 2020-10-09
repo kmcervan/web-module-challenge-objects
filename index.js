@@ -13,9 +13,13 @@ The function should:
   2. Create and return an object using the received values  
 */
 
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
-}
+function createMenuItem(name, price, category){
+    return {name, price, category}
+  }
+  console.log(createMenuItem('Cafe Latte', '4', 'Drinks'));
+  console.log(createMenuItem('Breakfast Burrito', '16', 'Breakfast'));
+
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Test your createMenuItems function by doing the following:
@@ -26,7 +30,12 @@ Test your createMenuItems function by doing the following:
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
 
-
+function newMenuItem(name, price, category){
+  return {name: 'name', price: 'price', category: 'category'}
+}
+console.log(createMenuItem('Pizza', '6', 'Food'));
+console.log(createMenuItem('Breakfast Sandwich', '12', 'Breakfast'));
+console.log(createMenuItem('Mocha Tea', '10', 'Drinks'));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to the 
@@ -45,8 +54,16 @@ export const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
-  /*Your code here*/
+  discount: function(){
+    if(burger.discount === '(teacher)' || '(student)'){
+      return 13.5;
+    }else if(burger.discount === '(public)'){
+      return 16.2;
+    }
+  }
 }
+console.log(burger.discount('teacher'));  
+
 
 
 
@@ -67,7 +84,7 @@ Using the reviews array above:
   1. log only Julius' feedback to the console
 */
 
-
+console.log(reviews[5].feedback);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -76,7 +93,11 @@ Using the reviews array above do the following:
   2. log the whole array to the console, make sure the new review is inside of it   
 */
 
-
+function addReview(array, name, rating, feedback){
+  array.push({name, rating, feedback});
+  return array
+}
+console.log(addReview(reviews, 'Karla', '3', 'it was cool.'));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Reyna's feedback is missing! Use what you know to do the following:
@@ -85,6 +106,11 @@ Reyna's feedback is missing! Use what you know to do the following:
 */
 
 
+function addFeedback(array, index, feedback){
+  array[index].feedback = feedback;
+  return array;
+}
+console.log(addFeedback(reviews, 7, 'this place is chill with really cool people, great for getting work done on weekdays'))
 
 
 
@@ -98,11 +124,11 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+function getReviewByIndex(array, index) {
+  array[index];
+  return '${this.name} gave the restaurant a ${this.rating} and their feedback was: ${this.feedback}';
 }
-
-
+console.log(getReviewByIndex(reviews, 0));
   
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -116,11 +142,17 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(array, string) {
+  let newarray = [];
+  for(let i = 0; i < array.length; i++){
+    if(array[i].includes(string)){
+      newarray.push(array[i]);
+    }
+  }
+  return newarray;
 } 
 
-
+console.log(originalFlavors.includes('Chocolate'));
 
 ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
 
